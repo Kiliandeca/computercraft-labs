@@ -1,6 +1,6 @@
 import { saveFile, updateStartup } from "../utils/files";
 
-const minFuelLevel = 800i
+const minFuelLevel = 800
 
 const floppy = `
 if not turtle then

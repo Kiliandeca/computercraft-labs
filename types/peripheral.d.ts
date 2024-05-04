@@ -1,5 +1,5 @@
 /** @noSelfInFile */
-namespace peripheral {
+declare namespace peripheral {
     type WrappedPeripheral = Monitor | Computer | Modem | Drive;
 
     /** @noSelf **/
@@ -28,4 +28,13 @@ namespace peripheral {
         isDiskPresent(): boolean
         // missing more function
     }
+
+    /** @noSelf **/
+    export interface Monitor {
+    }
+
+    function getType(...args: any[]): any
+    function isPresent(...args: any[]): any
+    function getNames(...args: any[]): any
+    function wrap(...args: any[]): any
 }

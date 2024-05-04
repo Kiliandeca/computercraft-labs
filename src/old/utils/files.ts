@@ -5,7 +5,7 @@ export const filesToInstall = [
 ]
 
 export function getRemoteFileContent(fileName: string){
-    const [reqResult, error] = http.get(`${baseUrl}/${fileName}`)
+    const [reqResult, error] = (http as any).get(`${baseUrl}/${fileName}`)
 
     if (!reqResult) {
         throw `Can't get the ${fileName} file: ${error}`
