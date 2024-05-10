@@ -36,23 +36,3 @@ end
 redstone.setOutput("front", true)
 print("Ready")
 `
-
-export function updateFloppy(){
-    for (const side of peripheral.getNames()) {    
-        if (peripheral.isPresent(side)) {
-            if (peripheral.getType(side) === 'drive') {
-                const diskDrive = peripheral.wrap(side) as peripheral.Drive
-                if (diskDrive.isDiskPresent()){
-                    console.log(`[I] Updating "disk/startup"`);
-                    saveFile('disk/startup', floppy)
-
-                    // Update itself before copying program to disk
-                    console.log(`[I] Updating Itself and "disk/output"`);
-                    updateStartup()
-                    shell.run('delete disk/output')
-                    fs.copy('startup', 'disk/output')
-                }
-            }
-        }
-    }
-}
