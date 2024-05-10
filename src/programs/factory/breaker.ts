@@ -2,7 +2,12 @@ import { error, info, warn } from "../../utils/logger"
 import { Program } from "../program"
 
 export class FactoryBreakerProgram implements Program {
-	static name: "Factory Breaker"
+    name: string
+
+    constructor() {
+        this.name = 'Factory Breaker'
+    }
+
 
 	start(): void {
 		info(`Setup ${FactoryBreakerProgram.name}`)

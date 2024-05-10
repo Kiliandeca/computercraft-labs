@@ -4,7 +4,11 @@ import { checkIsFuel, getFuelPotential } from "../../utils/turtle"
 import { Program } from "../program"
 
 export class FactoryTurtleProgram implements Program {
-	static name: "Factory Turtle"
+    name: string
+
+    constructor() {
+        this.name = 'Factory Turtle'
+    }
 
 	start(): void {
 		info(`Setup ${FactoryTurtleProgram.name}`)

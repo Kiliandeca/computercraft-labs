@@ -4,9 +4,14 @@ import { error, info } from "../utils/logger";
 import { Program } from "./program";
 
 class updateStartupProgram implements Program {
-	static name: "Update"
 
-	start({reboot = true}: {reboot: boolean}): void {
+    name: string
+
+    constructor() {
+        this.name = 'UpdateStartup'
+    }
+
+	start({reboot = true}: {reboot?: boolean} = {}): void {
 		info(`Setup ${updateStartupProgram.name}`)
         info('Trying to download latest code from server')
         const [code, message] = http.get(`${config.CONTROL_SERVER}/output.lua`)

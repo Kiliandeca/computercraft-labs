@@ -19,3 +19,7 @@ export function readFile(name: string): string {
     file.close();
     return content;
 }
+
+export function fileExists(name: string): boolean {
+    return fs.exists(name);
+}

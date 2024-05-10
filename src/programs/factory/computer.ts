@@ -5,7 +5,11 @@ import { updateStartup } from "../updateStartup";
 import { getFloppy } from "./floppy";
 
 export class factoryComputerProgram implements Program {
-	static name: "Factory Computer"
+    name: string
+
+    constructor() {
+        this.name = 'Factory Computer'
+    }
 
 	start(): void {
 		info(`Setup ${factoryComputerProgram.name}`)

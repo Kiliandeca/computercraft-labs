@@ -3,7 +3,11 @@ import { findFirstEmptySlot } from "../../utils/turtle";
 import { Program } from "../program"
 
 export class FactoryPlacerProgram implements Program {
-	static name: "Factory Computer"
+    name: string
+
+    constructor() {
+        this.name = 'Factory Placer'
+    }
 
 	start(): void {
 		info(`Setup ${FactoryPlacerProgram.name}`)

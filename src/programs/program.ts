@@ -4,12 +4,11 @@ import { factoryComputer } from "./factory/computer";
 import { factoryPlacer } from "./factory/placer";
 import { factoryTurtle } from "./factory/turtle";
 import { updateStartup } from "./updateStartup";
+import { playerKillSwitch } from "./playerKillSwitch";
 
 export abstract class Program {
-    static name: string;
-
+    abstract name: string;
     abstract start(params?: Object): void;
-    abstract resume?(): void;
 }
 
 export const programs: {[name: string]: Program} = {
@@ -19,4 +18,5 @@ export const programs: {[name: string]: Program} = {
   factoryPlacer,
   factoryTurtle,
   updateStartup,
+  playerKillSwitch,
 }

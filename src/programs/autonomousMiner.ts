@@ -6,19 +6,34 @@ import { TurtleDropFailures, askInput } from "../utils/utils";
 import { Program } from "./program";
 
 export class autonomousMinerProgram implements Program {
-	static name: "Autonomous Miner"
+	name: string
+	
+	state: {
+		length: number
+		width: number
+		startI: number
+		startJ: number
+	}
 
-	state = {
-		length: 0,
-		width: 0,
-		startI: 1,
-		startJ: 1,
+	constructor() {
+		this.name = ("Autonomous Miner")
+		this.state = {
+			length: 0,
+			width: 0,
+			startI: 1,
+			startJ: 1,
+		}
 	}
 
 	start(): void {
+		if(fs.exists("resume")) {
+			this.resume()
+			return
+		}
+
 		info(`Setup ${autonomousMinerProgram.name}`)
 		const param = this.setup()
-
+		
 		info(`Start mining ${param.length}x${param.width}`)
 		this.saveState()
 		saveFile("resume", "autonomousMiner")
